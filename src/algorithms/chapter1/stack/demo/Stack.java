@@ -54,7 +54,7 @@ public class Stack<T> implements Iterable<T> {
         return currIdx == N - 1;
     }
 
-    private int size() {
+    public int size() {
         return N;
     }
 
