@@ -46,7 +46,7 @@ public class Stack<T> implements Iterable<T> {
         }
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return currIdx == -1;
     }
 

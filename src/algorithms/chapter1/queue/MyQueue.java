@@ -2,12 +2,14 @@ package algorithms.chapter1.queue;
 
 import algorithms.chapter1.list.Node;
 
+import java.util.Iterator;
+
 /**
- * @Description:        使用链表实现队列
+ * @Description: 使用链表实现队列
  * @author: HuangYn
  * @date: 2018/12/6 20:50
  */
-public class MyQueue<T> {
+public class MyQueue<T> implements Iterable{
 
     private Node<T> first;      //第一个元素
     private Node<T> last;       //最后一个元素
@@ -44,6 +46,8 @@ public class MyQueue<T> {
         return null;
     }
 
+
+
     public static void main(String[] args) {
         MyQueue<Integer> queue = new MyQueue<>();
         queue.enqueue(1);
@@ -54,5 +58,21 @@ public class MyQueue<T> {
         System.out.println(queue.dequeue());
         System.out.println(queue.dequeue());
         System.out.println(queue.dequeue());
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+
+        return new Iterator<T>() {
+            @Override
+             public boolean hasNext() {
+                return !isEmpty();
+            }
+
+            @Override
+            public T next() {
+                return dequeue();
+            }
+        };
     }
 }
